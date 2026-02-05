@@ -149,6 +149,19 @@
             right: -20px;
         }
 
+        .hero-logo {
+            max-width: 180px;
+            height: auto;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 4px 15px rgba(61, 43, 31, 0.2));
+        }
+
+        @media (max-width: 600px) {
+            .hero-logo {
+                max-width: 140px;
+            }
+        }
+
         .hero-subtitle {
             font-family: var(--font-body);
             font-size: 0.9rem;
@@ -429,44 +442,22 @@
             margin-bottom: 20px;
         }
 
-        .about-image-placeholder {
-            aspect-ratio: 4/5;
-            background: linear-gradient(145deg, var(--color-cream-dark), var(--color-wood-light));
+        .about-image {
             border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-wood-dark);
-            font-size: 3rem;
-            position: relative;
             overflow: hidden;
-            border: 3px solid var(--color-wood-light);
+            box-shadow: 0 10px 40px rgba(61, 43, 31, 0.2);
         }
 
-        .about-image-placeholder::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 10px,
-                rgba(139, 105, 20, 0.05) 10px,
-                rgba(139, 105, 20, 0.05) 20px
-            );
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
         }
 
-        .about-image-placeholder span {
-            position: relative;
-            z-index: 1;
-        }
-
-        .about-image-placeholder .placeholder-text {
-            font-size: 0.85rem;
-            margin-top: 10px;
-            color: var(--color-text-light);
-            font-weight: 500;
+        .about-image:hover img {
+            transform: scale(1.05);
         }
 
         @media (max-width: 700px) {
@@ -475,8 +466,7 @@
                 gap: 30px;
             }
 
-            .about-image-placeholder {
-                aspect-ratio: 16/10;
+            .about-image {
                 max-width: 400px;
                 margin: 0 auto;
             }
@@ -520,56 +510,28 @@
 
         .gallery-item {
             aspect-ratio: 1;
-            background: linear-gradient(145deg, rgba(196, 165, 116, 0.3), rgba(92, 74, 31, 0.5));
             border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-wood-light);
-            font-size: 2.5rem;
             position: relative;
             overflow: hidden;
-            border: 2px solid rgba(196, 165, 116, 0.3);
-            transition: transform 0.3s ease, border-color 0.3s ease;
             cursor: pointer;
         }
 
-        .gallery-item:hover {
-            transform: scale(1.02);
-            border-color: var(--color-amber);
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
         }
 
         .gallery-item.large {
             grid-column: span 2;
             grid-row: span 2;
             aspect-ratio: auto;
-        }
-
-        .gallery-item::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: repeating-linear-gradient(
-                -45deg,
-                transparent,
-                transparent 8px,
-                rgba(212, 160, 74, 0.05) 8px,
-                rgba(212, 160, 74, 0.05) 16px
-            );
-        }
-
-        .gallery-item span {
-            position: relative;
-            z-index: 1;
-        }
-
-        .gallery-item .placeholder-label {
-            font-size: 0.75rem;
-            margin-top: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0.7;
         }
 
         .gallery-note {
@@ -590,10 +552,6 @@
                 grid-column: span 2;
                 grid-row: span 1;
                 aspect-ratio: 16/10;
-            }
-
-            .gallery-item {
-                font-size: 1.8rem;
             }
         }
 
@@ -1071,6 +1029,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-decoration"></div>
+        <img src="img/logo.png" alt="Birreria Marconi 2 Logo" class="hero-logo">
         <p class="hero-subtitle">
             <span data-lang="it">Zagarolo, Roma</span>
             <span data-lang="en">Zagarolo, Rome</span>
@@ -1180,16 +1139,8 @@
                         <span data-lang="en">— Founded by Emanuele Gerosi</span>
                     </p>
                 </div>
-                <div class="about-image-placeholder">
-                    <span>📷</span>
-                    <span class="placeholder-text">
-                        <span data-lang="it">Foto del locale</span>
-                        <span data-lang="en">Photo of the pub</span>
-                    </span>
-                    <!-- 
-                        SOSTITUISCI QUESTO PLACEHOLDER CON:
-                        <img src="path/to/your/image.jpg" alt="Birreria Marconi 2 interno" style="width:100%; height:100%; object-fit:cover;">
-                    -->
+                <div class="about-image">
+                    <img src="img/foto-locale.webp" alt="Birreria Marconi 2 - Il locale">
                 </div>
             </div>
         </div>
@@ -1204,44 +1155,16 @@
             </h2>
             <div class="gallery-grid">
                 <div class="gallery-item large">
-                    <span>🍺</span>
-                    <span class="placeholder-label">
-                        <span data-lang="it">Foto principale</span>
-                        <span data-lang="en">Main photo</span>
-                    </span>
-                    <!-- <img src="path/to/image1.jpg" alt=""> -->
+                    <img src="img/bancone.webp" alt="Il bancone della Birreria Marconi 2">
                 </div>
                 <div class="gallery-item">
-                    <span>🪑</span>
-                    <span class="placeholder-label">
-                        <span data-lang="it">Interni</span>
-                        <span data-lang="en">Interior</span>
-                    </span>
-                    <!-- <img src="path/to/image2.jpg" alt=""> -->
+                    <img src="img/interno.webp" alt="Interni del locale">
                 </div>
                 <div class="gallery-item">
-                    <span>🎯</span>
-                    <span class="placeholder-label">
-                        <span data-lang="it">Freccette</span>
-                        <span data-lang="en">Darts</span>
-                    </span>
-                    <!-- <img src="path/to/image3.jpg" alt=""> -->
+                    <img src="img/beer.jpg" alt="Le nostre birre artigianali">
                 </div>
                 <div class="gallery-item">
-                    <span>🍕</span>
-                    <span class="placeholder-label">
-                        <span data-lang="it">Cibo</span>
-                        <span data-lang="en">Food</span>
-                    </span>
-                    <!-- <img src="path/to/image4.jpg" alt=""> -->
-                </div>
-                <div class="gallery-item">
-                    <span>🌙</span>
-                    <span class="placeholder-label">
-                        <span data-lang="it">Atmosfera</span>
-                        <span data-lang="en">Atmosphere</span>
-                    </span>
-                    <!-- <img src="path/to/image5.jpg" alt=""> -->
+                    <img src="img/foto-locale.webp" alt="Birreria Marconi 2">
                 </div>
             </div>
             <div class="gallery-cta">
