@@ -673,10 +673,99 @@
         }
 
         .reviews-widget-container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
-            min-height: 100px;
-            /* Widget embed codes go here */
+            padding: 20px 0;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .review-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(61, 43, 31, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(61, 43, 31, 0.12);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .reviewer-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--color-amber);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .reviewer-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+            color: var(--color-deep-brown);
+            font-size: 1rem;
+        }
+
+        .review-date {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+        }
+
+        .review-stars {
+            color: #FFB800;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .review-text {
+            color: var(--color-text);
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .review-source {
+            display: inline-block;
+            background: #f0f0f0;
+            color: var(--color-text-light);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .review-card {
+                padding: 20px;
+            }
         }
 
         .reviews-cta {
@@ -1036,8 +1125,8 @@
                 <span data-lang="en">What People Say</span>
             </h2>
             <p class="reviews-intro">
-                <span data-lang="it">Leggi le esperienze dei nostri clienti su Google e TripAdvisor</span>
-                <span data-lang="en">Read about our customers' experiences on Google and TripAdvisor</span>
+                <span data-lang="it">Leggi le esperienze dei nostri clienti su Google</span>
+                <span data-lang="en">Read about our customers' experiences on Google</span>
             </p>
             
             <div class="reviews-platforms">
@@ -1051,6 +1140,7 @@
                     <span class="platform-count">17 reviews</span>
                 </a>
                 
+                <!-- TripAdvisor link commented out
                 <a href="https://www.tripadvisor.it/Restaurant_Review-g795890-d27328375-Reviews-Birreria_Marconi_2-Zagarolo_Province_of_Rome_Lazio.html" target="_blank" class="platform-badge">
                     <span class="platform-icon">🦉</span>
                     <span class="platform-name">TripAdvisor</span>
@@ -1060,24 +1150,51 @@
                     </span>
                     <span class="platform-count">735 reviews</span>
                 </a>
+                -->
             </div>
             
-            <!-- Widget Container: Inserisci qui i codici embed dei widget recensioni -->
+            <!-- Sample Google Reviews -->
             <div class="reviews-widget-container" id="reviews-widgets">
-                <!-- 
-                    ISTRUZIONI PER AGGIUNGERE I WIDGET:
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-avatar">D</div>
+                            <div class="reviewer-info">
+                                <span class="reviewer-name">Daniele</span>
+                            </div>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text" data-lang="it">Grazioso e semplice locale nel centro storico di Zagarolo. Piccolo aperitivo (per nostra volontà) accompagnato da una ottima birra, locale 'caldo' nonostante la fredda temperatura all'esterno. Ci tornerò sicuramente… grazie!</p>
+                        <p class="review-text" data-lang="en">Charming and simple venue in the historic center of Zagarolo. Small aperitivo (by our choice) accompanied by an excellent beer, a 'warm' place despite the cold temperature outside. I will definitely come back… thank you!</p>
+                        <span class="review-source">Google</span>
+                    </div>
                     
-                    1. GOOGLE REVIEWS:
-                       - Vai su EmbedSocial.com o Elfsight.com (piano gratuito)
-                       - Collega il profilo Google Business di Birreria Marconi 2
-                       - Copia il codice embed e incollalo qui
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-avatar">S</div>
+                            <div class="reviewer-info">
+                                <span class="reviewer-name">Silvia</span>
+                            </div>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text" data-lang="it">Accogliente, con personale premuroso, ottime birre e companatico sfizioso. Ci si sente a casa.</p>
+                        <p class="review-text" data-lang="en">Welcoming, with caring staff, excellent beers and delicious snacks. You feel right at home.</p>
+                        <span class="review-source">Google</span>
+                    </div>
                     
-                    2. TRIPADVISOR:
-                       - Vai su tripadvisor.com/Widgets
-                       - Cerca "Birreria Marconi 2 Zagarolo"
-                       - Scegli il widget che preferisci
-                       - Copia il codice embed e incollalo qui
-                -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-avatar">E</div>
+                            <div class="reviewer-info">
+                                <span class="reviewer-name">Eduardo</span>
+                            </div>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text" data-lang="it">Personale gentilissimo, ottima musica, dal rock al funk (passando anche per il punk!). Buonissimi fusti, un'accoglienza fuori dal comune. A Birreria Marconi ci si sente proprio a casa! 🫂</p>
+                        <p class="review-text" data-lang="en">Very friendly staff, great music, from rock to funk (including punk!). Excellent draft beers, an extraordinary welcome. At Birreria Marconi you really feel at home! 🫂</p>
+                        <span class="review-source">Google</span>
+                    </div>
+                </div>
             </div>
             
             <div class="reviews-cta">
