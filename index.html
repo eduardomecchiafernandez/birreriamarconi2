@@ -1023,6 +1023,17 @@
             opacity: 0.7;
         }
 
+        .footer-love a {
+            color: var(--color-wood-light);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .footer-love a:hover {
+            border-color: var(--color-wood-light);
+        }
+
         /* Language visibility */
         [data-lang="en"] {
             display: none !important;
@@ -1428,12 +1439,10 @@
     <!-- Footer -->
     <footer>
         <p class="footer-logo">Birreria Marconi 2</p>
+        <p class="footer-love">© 2026</p>
         <p class="footer-love">
-            <span data-lang="it">Fatto con ♥ a Zagarolo</span>
-            <span data-lang="en">Made with ♥ in Zagarolo</span>
-        </p>
-        <p class="footer-love">
-            © 2026 Eduardo Mecchia Fernandez
+            <span data-lang="it">Fatto con ♥ a Zagarolo da <a href="https://www.eduardomecchiafernandez.com" target="_blank">Eduardo Mecchia Fernandez</a></span>
+            <span data-lang="en">Made with ♥ in Zagarolo by <a href="https://www.eduardomecchiafernandez.com" target="_blank">Eduardo Mecchia Fernandez</a></span>
         </p>
     </footer>
 
