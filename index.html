@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Birreria Marconi 2 | Zagarolo</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍺</text></svg>">
+    <link rel="preload" href="img/logo.webp" as="image" type="image/webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -1090,7 +1091,10 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-decoration"></div>
-        <img src="img/logo.png" alt="Birreria Marconi 2 Logo" class="hero-logo">
+        <picture>
+            <source srcset="img/logo.webp" type="image/webp">
+            <img src="img/logo.png" alt="Birreria Marconi 2 Logo" class="hero-logo" width="540" height="501" fetchpriority="high">
+        </picture>
         <p class="hero-subtitle">
             <span data-lang="it">Zagarolo, Roma</span>
             <span data-lang="en">Zagarolo, Rome</span>
